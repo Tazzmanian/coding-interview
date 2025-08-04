@@ -13,4 +13,9 @@ public interface StringUtils {
         }
         return String.valueOf(chars);
     }
+
+    static boolean hasUniqueCharacters(String str) {
+
+        return false;
+    }
 }
