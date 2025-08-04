@@ -32,4 +32,14 @@ class StringUtilsTest {
                 .hasUniqueCharacters("abccaaaaaaaaaaaaaaaaaaaaassssssssaaaaaaaaaaaaaaaaaadddddddddddddddddabccaaaaaaaaaaaaaaaaaaaaassssssssaaaaaaaaaaaaaaaaaaddddddaaaa"));
     }
 
+    @Test
+    public void isPalindrome_shouldReturnTrue_whenValid() {
+        assertTrue(StringUtils.isPalindrome("madam"));
+    }
+
+    @Test
+    public void isPalindrome_shouldReturnFalse_whenInvalid() {
+        assertFalse(StringUtils.isPalindrome("madama"));
+    }
+
 }
