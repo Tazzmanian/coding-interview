@@ -37,22 +37,16 @@ public interface NumberUtils {
     }
 
     static IntFunction<String> fizzBuzz() {
-        final String BUZZ = "Buzz";
-        final String FIZZ = "Fizz";
-        final String DASH = "-";
         return x -> {
-            StringBuilder sb = new StringBuilder();
             if (x % 5 == 0 && x % 3 == 0) {
-                sb.append(FIZZ).append(DASH).append(BUZZ);
+                return "Fizz-Buzz";
             } else if (x % 5 == 0) {
-                sb.append(BUZZ);
+                return "Buzz";
             } else if (x % 3 == 0) {
-                sb.append(FIZZ);
+                return "Fizz";
             } else {
-                sb.append(x);
+                return String.valueOf(x);
             }
-
-            return sb.toString();
         } ;
     }
 }
