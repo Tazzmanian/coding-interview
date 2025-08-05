@@ -49,4 +49,20 @@ public interface NumberUtils {
             }
         } ;
     }
+
+    static int validProducts(int x, int y) {
+        if (x < 1)
+            throw new IllegalArgumentException("invalid input: " + x);
+
+        int n = (int) Math.sqrt(Integer.valueOf(x).doubleValue());
+        int numberOfValidProducts = 0;
+        while (n * (n + 1) <= y) {
+            int product = n * (n + 1);
+            if (product >= x && product <= y) {
+                numberOfValidProducts++;
+            }
+            n++;
+        }
+        return numberOfValidProducts;
+    }
 }
