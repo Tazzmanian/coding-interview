@@ -18,4 +18,15 @@ public interface NumberUtils {
     static Predicate<Integer> isEven() {
         return x -> x % 2 == 0;
     }
+
+    static int getSmallestWithSameNumberOfDigits(int n) {
+        String number = String.valueOf(Math.abs(n));
+        if (number.length() == 1 && n >= 0) {
+            return 0;
+        }
+        if (n > 0) {
+            return (int) Math.pow(10, number.length() - 1);
+        }
+        return 1 - (int) Math.pow(10, number.length());
+    }
 }
