@@ -1,6 +1,8 @@
 package org.logic.puzzles;
 
+import java.util.function.IntFunction;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public interface NumberUtils {
@@ -28,5 +30,29 @@ public interface NumberUtils {
             return (int) Math.pow(10, number.length() - 1);
         }
         return 1 - (int) Math.pow(10, number.length());
+    }
+
+    static String fizzBuzz(int n) {
+        return IntStream.rangeClosed(1, n).mapToObj(fizzBuzz()).collect(Collectors.joining(","));
+    }
+
+    static IntFunction<String> fizzBuzz() {
+        final String BUZZ = "Buzz";
+        final String FIZZ = "Fizz";
+        final String DASH = "-";
+        return x -> {
+            StringBuilder sb = new StringBuilder();
+            if (x % 5 == 0 && x % 3 == 0) {
+                sb.append(FIZZ).append(DASH).append(BUZZ);
+            } else if (x % 5 == 0) {
+                sb.append(BUZZ);
+            } else if (x % 3 == 0) {
+                sb.append(FIZZ);
+            } else {
+                sb.append(x);
+            }
+
+            return sb.toString();
+        } ;
     }
 }
