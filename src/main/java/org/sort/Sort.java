@@ -1,4 +1,4 @@
-package org.search.sort;
+package org.sort;
 
 public sealed abstract class Sort permits BubbleSort, InsertionSort, QuickSort {
 

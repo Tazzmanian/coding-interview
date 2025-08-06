@@ -1,4 +1,4 @@
-package org.search.sort;
+package org.sort;
 
 public final class BubbleSort extends Sort {
     @Override
