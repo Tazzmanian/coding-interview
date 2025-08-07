@@ -1,7 +1,9 @@
 package org.trees.product;
 
 import java.util.List;
+import java.util.StringJoiner;
 
+//@Getter
 public class ProductTree {
     private ProductNode root;
 
@@ -50,5 +52,50 @@ public class ProductTree {
                 return null;
         }
         return current;
+    }
+
+    public String inOrderTraversal() {
+        StringJoiner joiner = new StringJoiner("->", "[", "]");
+        return inOrderTraversal(root, joiner);
+    }
+
+    private String inOrderTraversal(ProductNode node, StringJoiner joiner) {
+        if (node != null) {
+            inOrderTraversal(node.getLeft(), joiner);
+            joiner.add(node.getGtin());
+            inOrderTraversal(node.getRight(), joiner);
+        }
+
+        return joiner.toString();
+    }
+
+    public String preOrderTraversal() {
+        StringJoiner joiner = new StringJoiner("->", "[", "]");
+        return preOrderTraversal(root, joiner);
+    }
+
+    private String preOrderTraversal(ProductNode node, StringJoiner joiner) {
+        if (node != null) {
+            joiner.add(node.getGtin());
+            preOrderTraversal(node.getLeft(), joiner);
+            preOrderTraversal(node.getRight(), joiner);
+        }
+
+        return joiner.toString();
+    }
+
+    public String postOrderTraversal() {
+        StringJoiner joiner = new StringJoiner("->", "[", "]");
+        postOrderTraversal(root, joiner);
+        return joiner.toString();
+    }
+
+    private void postOrderTraversal(ProductNode node, StringJoiner joiner) {
+        if (node == null)
+            return ;
+
+        postOrderTraversal(node.getLeft(), joiner);
+        postOrderTraversal(node.getRight(), joiner);
+        joiner.add(node.getGtin());
     }
 }
