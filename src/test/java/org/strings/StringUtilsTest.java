@@ -42,4 +42,10 @@ class StringUtilsTest {
         assertFalse(StringUtils.isPalindrome("madama"));
     }
 
+    @Test
+    public void reverseWithStack_shouldWork() {
+        assertEquals("efac", StringUtils.reverseWithStack("cafe"));
+        assertEquals("2312cba", StringUtils.reverseWithStack("abc2132"));
+    }
+
 }

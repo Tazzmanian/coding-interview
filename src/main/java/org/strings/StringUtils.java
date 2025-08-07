@@ -1,5 +1,7 @@
 package org.strings;
 
+import java.util.Stack;
+
 public interface StringUtils {
 
     //  reverse the order of the characters in an efficient manner.
@@ -36,5 +38,20 @@ public interface StringUtils {
             }
         }
         return true;
+    }
+
+    static String reverseWithStack(String str) {
+        Stack<Character> stack = new Stack<>();
+        for (char c : str.toCharArray()) {
+            stack.push(c);
+        }
+
+        char[] arr = new char[str.length()];
+        int i = 0;
+        while (!stack.isEmpty()) {
+            arr[i++] = stack.pop();
+        }
+
+        return String.valueOf(arr);
     }
 }
