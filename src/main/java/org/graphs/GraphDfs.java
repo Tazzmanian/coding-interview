@@ -7,7 +7,7 @@ import java.util.Stack;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Data
-public class Graph {
+public class GraphDfs {
     private final int MAX_VERTEX = 15;
     private Vertex arrayOfVertex[]; //cities
     private Map<String, Integer> mapOfVertex;
@@ -16,7 +16,7 @@ public class Graph {
     //register the location at the arrayOfVertex:
     private int numOfVertices;
     private Stack<Integer> stack;
-    public Graph() {
+    public GraphDfs() {
         arrayOfVertex = new Vertex[MAX_VERTEX];
         mapOfVertex = new ConcurrentHashMap<>();
         numOfVertices = 0;

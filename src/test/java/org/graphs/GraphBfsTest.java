@@ -5,12 +5,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class GraphTest {
-    GraphDfs graph;
+class GraphBfsTest {
+    GraphBfs graph;
 
     @BeforeEach
     public void setup() {
-        graph = new GraphDfs();
+        graph = new GraphBfs(15);
     }
 
     @Test
@@ -29,12 +29,12 @@ class GraphTest {
         graph.addVertex(v1); //location 0
         graph.addVertex(v2); //location 1
         graph.addEdge(city1, city2);
-        assertEquals(1, graph.getMatrixOfAdjVertex()[0][1]);
-        assertEquals(1, graph.getMatrixOfAdjVertex()[1][0]);
+        assertEquals(1, (int) graph.getAdjList()[0].getFirst());
+        assertEquals(0, (int) graph.getAdjList()[1].getFirst());
     }
 
     @Test
-    public void test_dfs() {
+    public void test_bfs() {
         String city1 = "Berlin";
         String city2 = "Leipzig";
         String city3 = "Dresden";
@@ -70,6 +70,7 @@ class GraphTest {
         graph.addEdge(city1, city6);
         graph.addEdge(city1, city11);
         graph.addEdge(city5, city12);
-        graph.dfs(city1);
+        graph.addEdge(city9, city10);
+        graph.bfs(city1);
     }
 }
